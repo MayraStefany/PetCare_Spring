@@ -30,7 +30,7 @@ public class AlumnoController {
 
 
 	@RequestMapping("/bienvenido")
-	public String irBienvenido() {
+	public String irBienvenidos() {
 		return "bienvenido";
 	}
 
