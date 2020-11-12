@@ -9,7 +9,7 @@
 <meta name="author" content="">
 <link rel="icon" type="/pio/image/png" sizes="16x16"
 	href="/pio/plugins/images/UPCicon.png">
-<title>Aplicativo de matricula</title>
+<title>Aplicativo PetCare</title>
 <!-- Bootstrap Core CSS -->
 <link href="/pio/bootstrap/dist/css/bootstrap.min.css" rel="stylesheet"></link>
 <!-- Menu CSS -->
@@ -60,7 +60,7 @@
 			<div class="navbar-header">
 				<div class="top-left-part">
 					<!-- Logo -->
-					<a class="logo" th:href="@{/cursosxalumnos/bienvenido}"> <!-- Logo icon image, you can use font-icon also -->
+					<a class="logo" th:href="@{/reservas/bienvenido}"> <!-- Logo icon image, you can use font-icon also -->
 						<b> <!--This is dark logo icon--> <img
 							src="/pio/plugins/images/admin-logo.png" alt="home"
 							class="dark-logo" /> <!--This is light logo icon--> <img
@@ -108,22 +108,23 @@
 				</div>
 				<ul class="nav" id="side-menu">
 					<li style="padding: 70px 0 0;"><a
-						th:href="@{/cursosxalumnos/bienvenido}" class="waves-effect"><i
+						th:href="@{/reservas/bienvenido}" class="waves-effect"><i
 							class="fa fa-cog fa-spin" aria-hidden="true"></i>Men&uacute;
 							principal</a></li>
 
-
-					<li><a th:href="@{/docentes/listar}" class="waves-effect"><i
+					<li><a th:href="@{/clientes/listar}" class="waves-effect"><i
 							class="fa fa-user fa-fw" aria-hidden="true"></i>Clientes</a></li>
-					<li><a th:href="@{/alumnos/listar}" class="waves-effect"><i
+					<li><a th:href="@{/medicos/listar}" class="waves-effect"><i
+							class="fa fa-user fa-fw" aria-hidden="true"></i>Medicos</a></li>
+					<li><a th:href="@{/mascotas/listar}" class="waves-effect"><i
 							class="fa fa-font fa-fw" aria-hidden="true"></i>Mascotas</a></li>
-					<li><a th:href="@{/cursos/listar}" class="waves-effect"><i
+					<li><a th:href="@{/veterinarias/listar}" class="waves-effect"><i
 							class="fa fa-table fa-fw" aria-hidden="true"></i>Veterinarias</a></li>
 
 				</ul>
 				<div class="center p-20">
-					<a th:href="@{/cursosxalumnos/listar}" target="_blank"
-						class="btn btn-danger btn-block waves-effect waves-light">Reserva</a>
+					<a th:href="@{/reservas/listar}" target="_blank"
+						class="btn btn-danger btn-block waves-effect waves-light">Reservas</a>
 				</div>
 			</div>
 
@@ -177,7 +178,7 @@
 
 					<div class="col-lg-4 col-sm-6 col-xs-12">
 						<div class="white-box analytics-info">
-							<h3 class="box-title">Total Citas</h3>
+							<h3 class="box-title">Total Medicos</h3>
 							<ul class="list-inline two-part">
 								<li>
 									<div id="sparklinedash3"></div>
@@ -290,9 +291,10 @@
 														<i class="fa fa-comments-o"></i>
 													</button>
 												</div> <a href="javascript:void(0)"><img
-													src="/pio/plugins/images/users/raul.jpg" alt="user-img"
-													class="img-circle"> <span>Mayra Torres Munares <small class="text-success">Scrum
-															Master</small>
+													src="/pio/plugins/images/users/m.jpg" alt="user-img"
+													class="img-circle"> <span>Mayra Torres
+														Munares <small class="text-success">Estudiante
+															de Programacion en Web</small>
 												</span></a>
 											</li>
 											<li>
@@ -306,9 +308,9 @@
 														<i class="fa fa-comments-o"></i>
 													</button>
 												</div> <a href="javascript:void(0)"><img
-													src="/pio/plugins/images/users/genu.jpg" alt="user-img"
-													class="img-circle"> <span>Anthamy Alarcon <small
-														class="text-warning">Scrum Developer</small></span></a>
+													src="/pio/plugins/images/users/Anthamy.jpeg" height= "55px" width="70px" alt="user-img"
+													class="img-circle"> <span>Anthamy Barrera Alarcon <small
+														class="text-warning">Estudiante de Programacion en Web</small></span></a>
 											</li>
 											<li>
 												<div class="call-chat">
@@ -321,9 +323,9 @@
 														<i class="fa fa-comments-o"></i>
 													</button>
 												</div> <a href="javascript:void(0)"><img
-													src="/pio/plugins/images/users/arijit.jpg" alt="user-img"
-													class="img-circle"> <span>Luis<small
-														class="text-muted">Project Manager</small></span></a>
+													src="/pio/plugins/images/users/Caroline.jpeg" alt="user-img"
+													class="img-circle"> <span>Caroline Ranilla Gonzales<small
+														class="text-muted">Estudiante de Programacion en Web</small></span></a>
 											</li>
 											<li>
 												<div class="call-chat">
@@ -336,8 +338,27 @@
 														<i class="fa fa-comments-o"></i>
 													</button>
 												</div> <a href="javascript:void(0)"><img
-													src="/pio/plugins/images/users/govinda.jpg" alt="user-img"
-													class="img-circle"> <span>Caroline<small class="text-success">Product Owner</small>
+													src="/pio/plugins/images/users/Alexis.jpeg" height= "50px" width="78px" alt="user-img"
+													class="img-circle"> <span>Alexis Garibay
+														Palomino <small class="text-success"> Estudiante de Programacion
+															en Web</small>
+												</span></a>
+											</li>
+											<li>
+												<div class="call-chat">
+													<button class="btn btn-success btn-circle btn-lg"
+														type="button">
+														<i class="fa fa-phone"></i>
+													</button>
+													<button class="btn btn-info btn-circle btn-lg"
+														type="button">
+														<i class="fa fa-comments-o"></i>
+													</button>
+												</div> <a href="javascript:void(0)"><img
+													src="/pio/plugins/images/users/Luis.jpeg" alt="user-img"
+													class="img-circle"> <span>Luis
+														Alfaro Hernandez<small class="text-success">Estudiante de Programacion
+															en Web</small>
 												</span></a>
 											</li>
 										</ul>
@@ -350,8 +371,7 @@
 				</div>
 			</div>
 			<!-- /.container-fluid -->
-			<footer class="footer text-center"> 2020 &copy; Diseño de
-				experimentos en CI </footer>
+			<footer class="footer text-center"> 2020 &copy; PetCare </footer>
 		</div>
 		<!-- ============================================================== -->
 		<!-- End Page Content -->
