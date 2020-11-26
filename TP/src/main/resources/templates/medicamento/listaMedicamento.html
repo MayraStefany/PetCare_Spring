@@ -1,0 +1,327 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+
+<head>
+<meta charset="utf-8">
+<meta http-equiv="X-UA-Compatible" content="IE=edge">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="description" content="">
+<meta name="author" content="">
+<link rel="icon" type="/pio/image/png" sizes="16x16"
+	href="/pio/plugins/images/UPCicon.png">
+<title>Aplicativo PetCare</title>
+<!-- Bootstrap Core CSS -->
+<link href="/pio/bootstrap/dist/css/bootstrap.min.css" rel="stylesheet"></link>
+<!-- Menu CSS -->
+<link
+	href="/pio/plugins/bower_components/sidebar-nav/dist/sidebar-nav.min.css"
+	rel="stylesheet"></link>
+<!-- toast CSS -->
+<link
+	href="/pio/plugins/bower_components/toast-master/css/jquery.toast.css"
+	rel="stylesheet"></link>
+<!-- morris CSS -->
+<link href="/pio/plugins/bower_components/morrisjs/morris.css"
+	rel="stylesheet"></link>
+<!-- chartist CSS -->
+<link
+	href="/pio/plugins/bower_components/chartist-js/dist/chartist.min.css"
+	rel="stylesheet"></link>
+<link
+	href="/pio/plugins/bower_components/chartist-plugin-tooltip-master/dist/chartist-plugin-tooltip.css"
+	rel="stylesheet"></link>
+<!-- animation CSS -->
+<link href="/pio/css/animate.css" rel="stylesheet"></link>
+<!-- Custom CSS -->
+<link href="/pio/css/style.css" rel="stylesheet"></link>
+<!-- color CSS -->
+<link href="/pio/css/colors/default.css" id="theme" rel="stylesheet"></link>
+
+<link rel="stylesheet" th:href="@{/css/sweetalert2.css}"></link>
+
+<script src="https://cdn.jsdelivr.net/npm/sweetalert2@9"></script>
+<!-- HTML5 Shim and Respond.js IE8 support of HTML5 elements and media queries -->
+<!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
+<!--[if lt IE 9]>
+    <script src="https://oss.maxcdn.com/libs/html5shiv/3.7.0/html5shiv.js"></script>
+    <script src="https://oss.maxcdn.com/libs/respond.js/1.4.2/respond.min.js"></script>
+<![endif]-->
+</head>
+
+<body class="fix-header">
+	<!-- ============================================================== -->
+	<!-- Preloader -->
+	<!-- ============================================================== -->
+
+	<!-- ============================================================== -->
+	<!-- Wrapper -->
+	<!-- ============================================================== -->
+	<div id="wrapper">
+		<!-- ============================================================== -->
+		<!-- Topbar header - style you can find in pages.scss -->
+		<!-- ============================================================== -->
+		<nav class="navbar navbar-default navbar-static-top m-b-0">
+			<div class="navbar-header">
+				<div class="top-left-part">
+					<!-- Logo -->
+					<a class="logo" th:href="@{/medicamentos/bienvenido}"> <!-- Logo icon image, you can use font-icon also -->
+						<b> <!--This is dark logo icon--> <img
+							src="/pio/plugins/images/admin-logo.png" alt="home"
+							class="dark-logo" /> <!--This is light logo icon--> <img
+							src="/pio/plugins/images/UPCicon-logo.png" alt="home"
+							class="light-logo" />
+					</b> <!-- Logo text image you can use text also --> <span
+						class="hidden-xs"> <!--This is dark logo text--> <img
+							src="/pio/plugins/images/admin-text.png" alt="home"
+							class="dark-logo" /> <!--This is light logo text--> <img
+							src="/pio/plugins/images/admin-text-dark.png" alt="home"
+							class="light-logo" />
+					</span>
+					</a>
+				</div>
+				<!-- /Logo -->
+				<ul class="nav navbar-top-links navbar-right pull-right">
+					<li><a class="profile-pic" href="#"> <img
+							src="/pio/plugins/images/users/varun.jpg" alt="user-img"
+							width="36" class="img-circle"><b class="hidden-xs"
+							th:inline="text">Welcome
+								[[${#httpServletRequest.remoteUser}]]!</b></a></li>
+					<li><a>
+							<form th:action="@{/logout}" method="post">
+								<input class="btn" type="submit" value="Sign Out" />
+							</form>
+					</a></li>
+				</ul>
+
+			</div>
+			<!-- /.navbar-header -->
+			<!-- /.navbar-top-links -->
+			<!-- /.navbar-static-side -->
+		</nav>
+		<!-- End Top Navigation -->
+		<!-- ============================================================== -->
+		<!-- Left Sidebar - style you can find in sidebar.scss  -->
+		<!-- ============================================================== -->
+		<div class="navbar-default sidebar" role="navigation">
+			<div class="sidebar-nav slimscrollsidebar">
+				<div class="sidebar-head">
+					<h3>
+						<span class="fa-fw open-close"><i class="ti-close ti-menu"></i></span>
+						<span class="hide-menu">Navigation</span>
+					</h3>
+				</div>
+				<ul class="nav" id="side-menu">
+					<li style="padding: 70px 0 0;"><a
+						th:href="@{/medicamentos/bienvenido}" class="waves-effect"><i
+							class="fa fa-cog fa-spin" aria-hidden="true"></i>Men&uacute;
+							principal</a></li>
+
+
+					<li><a th:href="@{/clientes/listar}" class="waves-effect"><i
+							class="fa fa-user fa-fw" aria-hidden="true"></i>Clientes</a></li>
+					<li><a th:href="@{/medicos/listar}" class="waves-effect"><i
+							class="fa fa-user fa-fw" aria-hidden="true"></i>Medicos</a></li>
+					<li><a th:href="@{/mascotas/listar}" class="waves-effect"><i
+							class="fa fa-font fa-fw" aria-hidden="true"></i>Mascotas</a></li>
+					<li><a th:href="@{/veterinarias/listar}" class="waves-effect"><i
+							class="fa fa-table fa-fw" aria-hidden="true"></i>Veterinarias</a></li>
+					<li><a th:href="@{/medicamentos/listar}" class="waves-effect"><i
+							class="fa fa-table fa-fw" aria-hidden="true"></i>Medicamentos</a></li>
+					<li><a th:href="@{/atenciones/listar}" class="waves-effect"><i
+							class="fa fa-table fa-fw" aria-hidden="true"></i>Atenciones</a></li>
+					<li><a th:href="@{/recetas/listar}" class="waves-effect"><i
+							class="fa fa-table fa-fw" aria-hidden="true"></i>Recetas</a></li>
+					<li><a th:href="@{/detalles/listar}" class="waves-effect"><i
+							class="fa fa-table fa-fw" aria-hidden="true"></i>Detalles</a></li>
+
+				</ul>
+				<div class="center p-20">
+					<a th:href="@{/reservas/listar}" target="_blank"
+						class="btn btn-danger btn-block waves-effect waves-light">Reservas</a>
+				</div>
+			</div>
+
+		</div>
+		<!-- ============================================================== -->
+		<!-- End Left Sidebar -->
+		<!-- ============================================================== -->
+		<!-- ============================================================== -->
+		<!-- Page Content -->
+		<!-- ============================================================== -->
+		<div id="page-wrapper">
+			<div class="container-fluid">
+				<div class="row bg-title">
+					<div class="col-lg-3 col-md-4 col-sm-4 col-xs-12">
+						<h4 class="page-title">Men&uacute; Medicamentos</h4>
+					</div>
+					<div align="right">
+						<a th:href="@{/medicamentos/nuevo}" id="add-row" type="button"
+							class="btn btn-primary btn-lg">Nuevo Medicamento</a>
+					</div>
+					<!-- /.col-lg-12 -->
+				</div>
+				<!-- /.row -->
+				<!-- ============================================================== -->
+				<!-- Different data widgets -->
+				<!-- ============================================================== -->
+				<!-- .row -->
+				<!-- Boton nuevo -->
+
+				<!-- table -->
+				<!-- ============================================================== -->
+
+				<div>
+					<form role="buscar" th:action="@{/medicamentos/busquedaportipo}"
+						class="app-search hidden-sm hidden-xs m-r-10" method="post"
+						th:object="${medicamento}">
+
+						<div class="form-group">
+							<label for="tipoMedicamento">Buscar por Tipo:</label> <select
+								class="form-control" th:field="*{tipoMedicamento}">
+								<option value="">--</option>
+								<option th:value="comprimido" th:text="comprimido"></option>
+								<option th:value="jarabe" th:text="jarabe"></option>
+								<option th:value="inyectable" th:text="inyectable"></option>
+							</select> <small th:if="${#fields.hasErrors('tipoMedicamento')}"
+								th:errors="*{tipoMedicamento}"></small>
+
+							<button type="submit" class="btn btn-success">Aceptar</button>
+
+						</div>
+					</form>
+				</div>
+
+
+
+
+				<div>
+					<form role="search" th:action="@{/medicamentos/busquedapornombre}"
+						class="app-search hidden-sm hidden-xs m-r-10" method="post"
+						th:object="${medicamento}">
+
+						<div class="form-group">
+							<label for="medicamento">Buscar:</label> <input type="text"
+								placeholder="Search..." class="form-control"
+								th:field="*{nombreMedicamento}" id="medicamento">
+							<button type="submit" class="btn btn-success">Aceptar</button>
+							<div align="right">
+								<a href="/medicamentos/listar" class="btn btn-danger">Cancelar</a>
+							</div>
+						</div>
+					</form>
+
+				</div>
+
+
+				<br>
+
+				<div class="row">
+					<div class="col-md-12 col-lg-12 col-sm-12">
+						<div class="white-box">
+
+							<h3 class="box-title">Listado de medicamentos registrados:</h3>
+							<div class="table-responsive">
+								<table class="table">
+									<thead>
+										<tr>
+											<th>#</th>
+											<th>Nombre</th>
+											<th>Tipo</th>
+											<th>Laboratorio</th>
+											<th align="center">Operación</th>
+											<th align="center">Operación</th>
+										</tr>
+									</thead>
+									<tbody>
+										<tr th:each="medicamento:${listaMedicamentos}">
+
+											<td><a class="btn btn-primary btn-xs"
+												th:href="@{/medicamentos/ver/} + ${medicamento.idMedicamento}"
+												th:text="${medicamento.idMedicamento}"></a></td>
+
+											<td th:text="${medicamento.nombreMedicamento}"></td>
+											<td th:text="${medicamento.tipoMedicamento}"></td>
+											<td th:text="${medicamento.laboratorioMedicamento}"></td>
+
+											<td align="left"><a th:id="${medicamento.idMedicamento}"
+												type="button" class="btn btn-default btn-lg"
+												onclick="ondelete(this);">Eliminar</a></td>
+
+											<td align="left"><a
+												th:href="@{'/medicamentos/editar/' + ${medicamento.idMedicamento}}"
+												type="button" class="btn btn-default btn-lg">Editar</a></td>
+										</tr>
+									</tbody>
+								</table>
+							</div>
+							<div th:if="${mensaje}" class="alert alert-info">
+								<p th:text="${mensaje}"></p>
+							</div>
+						</div>
+					</div>
+					<!-- ============================================================== -->
+					<!-- chat-listing & recent comments -->
+
+
+				</div>
+				<!-- /.container-fluid -->
+				<footer class="footer text-center"> 2020 &copy;
+					Programación WEB </footer>
+			</div>
+			<!-- ============================================================== -->
+			<!-- End Page Content -->
+			<!-- ============================================================== -->
+		</div>
+		<!-- ============================================================== -->
+		<!-- End Wrapper -->
+		<!-- ============================================================== -->
+		<!-- ============================================================== -->
+		<!-- All Jquery -->
+		<!-- ============================================================== -->
+		<script src="/pio/plugins/bower_components/jquery/dist/jquery.min.js"></script>
+		<!-- Bootstrap Core JavaScript -->
+		<script src="/pio/bootstrap/dist/js/bootstrap.min.js"></script>
+		<!-- Menu Plugin JavaScript -->
+		<script
+			src="/pio/plugins/bower_components/sidebar-nav/dist/sidebar-nav.min.js"></script>
+		<!--slimscroll JavaScript -->
+		<script src="/pio/js/jquery.slimscroll.js"></script>
+		<!--Wave Effects -->
+		<script src="/pio/js/waves.js"></script>
+		<!--Counter js -->
+		<script
+			src="/pio/plugins/bower_components/waypoints/lib/jquery.waypoints.js"></script>
+		<script
+			src="/pio/plugins/bower_components/counterup/jquery.counterup.min.js"></script>
+		<!-- chartist chart -->
+		<script
+			src="/pio/plugins/bower_components/chartist-js/dist/chartist.min.js"></script>
+		<script
+			src="/pio/plugins/bower_components/chartist-plugin-tooltip-master/dist/chartist-plugin-tooltip.min.js"></script>
+		<!-- Sparkline chart JavaScript -->
+		<script
+			src="/pio/plugins/bower_components/jquery-sparkline/jquery.sparkline.min.js"></script>
+		<!-- Custom Theme JavaScript -->
+		<script src="/pio/js/custom.min.js"></script>
+		<script src="/pio/js/dashboard1.js"></script>
+		<script
+			src="/pio/plugins/bower_components/toast-master/js/jquery.toast.js"></script>
+</body>
+<script type="text/javascript">
+	function ondelete(a){
+		Swal.fire({
+			title: '¿Estas seguro?',
+			text: "No podrás revertir esto!",
+			icon: 'warning',
+			showCancelButton: true,
+			confirmButtonColor: '#3085d6',  
+			cancelButtonColor: '#d33',
+		   	confirmButtonText: 'Si, eliminar!'
+		}).then((result) => {
+	if (result.value) {
+		    location.href = "/medicamentos/eliminar?id="+a.id;
+		 }
+	});
+}
+</script>
+</html>
